@@ -1,0 +1,17 @@
+<div class="card message-box shadow-lg" *ngIf="type === 'error'">
+  <div class="card-header alert-danger">
+    Error
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{message[code]}}</h5>
+  </div>
+</div>
+
+<div class="card message-box shadow-lg" *ngIf="type === 'info'">
+  <div class="card-header alert-info">
+    Info
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{message[code]}}</h5>
+  </div>
+</div>

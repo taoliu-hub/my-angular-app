@@ -1,0 +1,8 @@
+.btn-primary,
+.btn-warning,
+.btn-success,
+.btn-info,
+.btn-danger,
+.btn-default {
+  margin: 0 15px 0 15px !important;
+}

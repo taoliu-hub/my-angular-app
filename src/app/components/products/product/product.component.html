@@ -1,0 +1,24 @@
+<p>product works!</p>
+
+<h2>Product List</h2>
+{{rNum?.length}} - {{count}}
+<div *ngFor="let x of rNum | paginate: config">
+  {{x | classify}}
+</div>
+<pagination-controls id="basicPaginate" (pageChange)="pageChanged($event)"></pagination-controls>
+<label>Updated Label Display:</label>
+<pagination-controls id="basicPaginate" (pageChange)="this.config.currentPage = $event" previousLabel="上页" nextLabel="下页"></pagination-controls>
+<label>Filter:</label>
+<span *ngFor="let y of rNumFilter, let i = index">
+  {{y}} <strong *ngIf="i != rNumFilter.length - 1"> | </strong>
+</span>
+<br/>
+<br/>
+<label>Get request data by RxJS:</label>
+<div *ngFor="let todo of todos | paginate: {itemsPerPage: '3', currentPage: pageForTodo, totalItems: todos?.length}">
+  Id: {{todo?.id}},     Title: {{todo?.title}},     Completed: {{todo?.completed}};
+</div>
+<pagination-controls (pageChange)="pageForTodo = $event"></pagination-controls>
+
+<!-- Child Body -->
+<router-outlet></router-outlet>

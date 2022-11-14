@@ -1,0 +1,11 @@
+form>label {
+ font-weight: 600;
+}
+
+.content {
+  justify-content: center;
+}
+
+.error {
+  color: red;
+}

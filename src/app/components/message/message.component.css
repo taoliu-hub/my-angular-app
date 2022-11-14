@@ -1,0 +1,8 @@
+.message-box {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 300px;
+  top: 20%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}

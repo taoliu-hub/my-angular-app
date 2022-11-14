@@ -1,0 +1,8 @@
+<p>child works!</p>
+<p>Display parent value: {{msg_child}}</p>
+
+<label>
+  Add a new child detail:
+  <input #newChild/>
+</label>
+<button (click)="add(newChild.value)">add</button>
