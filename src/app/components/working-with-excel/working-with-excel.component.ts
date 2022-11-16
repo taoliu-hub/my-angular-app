@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Workbook } from 'exceljs';
 import { saveAs } from 'file-saver';
-import * as ExcelJS from 'exceljs';
-import * as fs from 'file-saver';
 
 @Component({
   selector: 'app-working-with-excel',
@@ -367,8 +365,8 @@ export class WorkingWithExcelComponent implements OnInit {
 
 
 
-  async exportExcel() {
-    const workbook = new ExcelJS.Workbook();
+  async exportSimpleExcel() {
+    const workbook = new Workbook();
     const worksheet = workbook.addWorksheet('My Sheet',
       {
         properties: {
@@ -390,9 +388,10 @@ export class WorkingWithExcelComponent implements OnInit {
    // worksheet.columns = this.excelSheet;
     // 插入数据
     worksheet.addRows(tableDate);
+
     // 写入文件
     const buffer = await workbook.xlsx.writeBuffer();
-    fs.saveAs(new Blob([buffer], {
+    saveAs(new Blob([buffer], {
       type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', // 示例时可去掉type
     }), `Equity Risk Rating - ${(new Date())}.xlsx`)
 
