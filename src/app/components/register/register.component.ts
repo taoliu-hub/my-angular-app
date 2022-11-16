@@ -20,16 +20,15 @@ export class RegisterComponent implements OnInit {
     this.form = this.formBuilder.group(
       {
         fullname: ['', Validators.required, ],
-        username: [
+        nickname: [
           '',
           [
             Validators.required,
             Validators.minLength(6),
             Validators.maxLength(20),
-
           ]
         ],
-        email: ['', [Validators.required, Validators.email]],
+        username: ['', [Validators.required, Validators.email,]],
         password: [
           '',
           [
@@ -39,11 +38,11 @@ export class RegisterComponent implements OnInit {
           ]
         ],
         confirmPassword: ['', Validators.required],
-        acceptTerms: [false, Validators.requiredTrue],
+        agree: [false, Validators.requiredTrue],
         isLoggedIn: [false]
       },
       {
-        validators: [Validation.match('password', 'confirmPassword'), this.isDuplicate('fullname'), this.isDuplicate('username')]
+        validators: [Validation.match('password', 'confirmPassword'), this.isDuplicate('username')]
       }
     );
   }
@@ -61,6 +60,7 @@ export class RegisterComponent implements OnInit {
   existsUser = [];
   async onSubmit(): Promise<void> {
     this.submitted = true;
+    console.log("this.form", this.form.errors)
     if (this.form.invalid) {
       return;
     }

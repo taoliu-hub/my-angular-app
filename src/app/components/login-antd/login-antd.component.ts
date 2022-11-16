@@ -11,6 +11,8 @@ import { ProfileService } from 'src/app/profile.service';
   styleUrls: ['./login-antd.component.css']
 })
 export class LoginAntdComponent implements OnInit {
+
+  user: any;
   validateForm!: FormGroup;
 
   submitForm(): void {
@@ -25,19 +27,16 @@ export class LoginAntdComponent implements OnInit {
     this.http.get<any>(`http://localhost:3000/users?username=${this.validateForm.value.username}&password=${this.validateForm.value.password}`).subscribe(async data => {
       // console.log("Response: ", data);
       if (data?.length > 0) {
-        alert("Login success.");
+        console.log("Login success.");
         data[0].isLoggedIn = true;
         this.profileService.updateLoggedStatus(data[0]).subscribe((res : any)  => {
-          console.log(res);
-          this.profileService.user =  _.cloneDeep(res);
-          delete this.profileService.user.password;
-          delete this.profileService.user.confirmPassword;
-          console.log("user: ", this.profileService.user);
-          // store sesstion
-          sessionStorage.setItem('userInfo', JSON.stringify(this.profileService.user));
-          this.profileService.setLoginStatus(res?.isLoggedIn);
+          console.log("res", res);
+          localStorage["username"] = res?.username;
+          this.profileService.setEncryptionObj("token", res);
+          this.profileService.authInfo = res;
+          this.profileService.setAuthData$();
           // this.router.navigateByUrl(`/welcome`);
-          this.router.navigate(['/welcome']);
+          this.router.navigate(['/index']);
         });
       } else {
         alert("User does not exist. Please try again.");
@@ -54,7 +53,9 @@ export class LoginAntdComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router
-  ) {}
+  ) {
+    localStorage.clear();
+  }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({

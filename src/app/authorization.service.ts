@@ -8,8 +8,10 @@ export class AuthorizationService {
 
   constructor(private profileService: ProfileService) { }
 
-  public isAuthorized() {
-    return this.profileService.getLoginStatus();
+  public isAuthorized(): boolean {
+    let isLoggedIn = this.profileService.getLoginStatus();
+    console.log("isLoggedIn ==>", isLoggedIn);
+    return !isLoggedIn ? false : true;
   }
 
 }

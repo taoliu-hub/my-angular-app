@@ -1,0 +1,33 @@
+<div id="accordion">
+  <div href="#fill" class="btn btn-primary" data-toggle="collapse" style="margin: 5px  0 5px 0;">折叠的常用Icon: manifest.fill</div>
+  <div id="fill" class="collapse">
+    <div class="row"  style="margin: 5px  0 5px 0;">
+      <div *ngFor="let item of manifest.fill" style="width: 100px;">
+        <div><span nz-icon nzTheme="fill"  [nzType]="item"></span></div> 
+        <div><label style="color: grey; word-break: break-word;">{{item}}&nbsp;&nbsp;</label></div>       
+      </div>
+    </div>
+  </div>
+</div>
+<div id="accordion">
+  <div href="#outline" class="btn btn-primary" data-toggle="collapse" style="margin: 5px  0 5px 0;">折叠的常用Icon: manifest.outline</div>
+  <div id="outline" class="collapse" >
+    <div class="row"  style="margin: 5px  0 5px 0;">
+      <div *ngFor="let item of manifest.outline" style="width: 100px;">
+        <div><span nz-icon nzTheme="outline"  [nzType]="item"></span></div> 
+        <div><label style="color: grey; word-break: break-word;">{{item}}&nbsp;&nbsp;</label></div>       
+      </div>
+    </div>
+  </div>
+</div>
+<div id="accordion">
+  <div href="#twotone" class="btn btn-primary" data-toggle="collapse" style="margin: 5px  0 5px 0;">折叠的常用Icon: manifest.twotone</div>
+  <div id="twotone" class="collapse">
+    <div class="row"  style="margin: 5px  0 5px 0;">
+      <div *ngFor="let item of manifest.twotone" style="width: 100px;">
+        <div><span nz-icon nzTheme="twotone"  [nzType]="item"></span></div> 
+        <div><label style="color: grey; word-break: break-word;">{{item}}&nbsp;&nbsp;</label></div>       
+      </div>
+    </div>
+  </div>
+</div>

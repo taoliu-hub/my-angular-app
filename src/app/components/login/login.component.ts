@@ -12,12 +12,18 @@ import * as _ from 'lodash';
 })
 export class LoginComponent implements OnInit {
 
+  user: any;
+  // Login Forms
+  form: FormGroup;
+  submitted = false;
+
   constructor(
     private http: HttpClient,
     private formBuilder: FormBuilder,
     private profileService: ProfileService,
     private router: Router
   ) {
+    localStorage.clear();
     this.form = this.formBuilder.group(
       {
         username: [
@@ -44,9 +50,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // Login Forms
-  form: FormGroup;
-  submitted = false;
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
   }
@@ -60,19 +63,16 @@ export class LoginComponent implements OnInit {
     this.http.get<any>(`http://localhost:3000/users?username=${this.form.value.username}&password=${this.form.value.password}`).subscribe(async data => {
       // console.log("Response: ", data);
       if (data?.length > 0) {
-        alert("Login success.");
+        console.log("Login success.");
         data[0].isLoggedIn = true;
         this.profileService.updateLoggedStatus(data[0]).subscribe((res : any)  => {
-          console.log(res);
-          this.profileService.user =  _.cloneDeep(res);
-          delete this.profileService.user.password;
-          delete this.profileService.user.confirmPassword;
-          console.log("user: ", this.profileService.user);
-          // store sesstion
-          sessionStorage.setItem('userInfo', JSON.stringify(this.profileService.user));
-          this.profileService.setLoginStatus(res?.isLoggedIn);
-          // this.router.navigateByUrl(`/welcome`);
-          this.router.navigate(['/welcome']);
+            console.log("data", res);
+            localStorage["username"] = res?.username;
+            this.profileService.setEncryptionObj("token", res);
+            this.profileService.authInfo = res;
+            this.profileService.setAuthData$();
+            // this.router.navigateByUrl(`/welcome`);
+            this.router.navigate(['/index']);
         });
       } else {
         alert("User does not exist. Please try again.");

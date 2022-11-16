@@ -1,0 +1,156 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="https://ng.ant.design/" target="_blank">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>Ant Design Of Angular</h1>
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzOpen nzTitle="Sign-in Or Sign-out" nzIcon="dashboard">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <span nz-icon nzTheme="outline" nzType="login"></span>
+            <a [routerLink]="['/login']" [routerLinkActive]="['active']">Login</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <span nz-icon nzTheme="outline" nzType="user-add"></span>
+            <a [routerLink]="['/register']" [routerLinkActive]="['active']">Register</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Home" nzIcon="home">
+        <ul>          
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/index" routerLinkActive="active">index</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/index/angular-command" routerLinkActive="active">Angular Command</a>
+          </li>          
+          <li nz-menu-item nzMatchRouter>
+            <a [routerLink]="['/index/home']" [routerLinkActive]="['active']">Home</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a [routerLink]="['/index/home/product']" [routerLinkActive]="['active']">Product</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a [routerLink]="['/index/home/product/product-details']" [routerLinkActive]="['active']">Product Details</a>
+          </li>
+        </ul>
+      </li>
+
+      <li nz-submenu nzOpen nzTitle="Ant Design" nzIcon="ant-design">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a [routerLink]="['/login-antd']" [routerLinkActive]="['active']">Login Antd</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a [routerLink]="['/register-antd']" [routerLinkActive]="['active']">Register Antd</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/index/icon-antd" routerLinkActive="active">Icon Antd</a>
+          </li>
+        </ul>
+      </li>
+
+      <li nz-submenu nzOpen nzTitle="Woring-Menu" nzIcon="menu">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <span nz-icon nzTheme="outline" nzType="form"></span>
+            <a [routerLink]="['/index/home/woring-with-forms']">Woring With Forms</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <span nz-icon nzTheme="outline" nzType="file-excel"></span>
+            <a [routerLink]="['/index/home/woring-with-excels']">Woring With Excels</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['/price']" [routerLinkActive]="['active']">Undefined Route: "/price"</a>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        	<!-- Toolbar -->
+        <div class="toolbar" role="banner">
+          <div>
+            <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+              <i class="trigger"
+                nz-icon
+                [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+              ></i>
+            </span>
+          </div>
+          <div style="min-width: 130px;">
+            <div class="float-left">
+              <img style="margin: 0 1px"
+                width="36"
+                alt="Angular Logo"
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+              />
+            </div>
+            <div class="float-right">
+              <span>Angular-App</span>
+            </div>
+          </div>
+          <div style="min-width: 120px;" *ngIf="authData?.nickname" class="container" align="center">
+            <span nz-icon nzTheme="outline" nzType="user" style="font-size: 22px;"></span>&nbsp;&nbsp;
+            <span >Welcome: {{authData?.nickname}}</span>
+          </div>
+          <div class="spacer">
+          </div>
+          <div style="margin-right: 25px; cursor: pointer;" (click)="goToBlog()">
+            <span>Blog</span>&nbsp;
+            <span nz-icon nzTheme="outline" nzType="global"></span>
+          </div>
+          <div style="margin-right: 25px; cursor: pointer;">
+            <div (click)="logout()" *ngIf="authData?.nickname; else loginTemp">
+              <span >Logout</span>&nbsp;&nbsp;
+              <span nz-icon nzTheme="outline" nzType="logout"></span>
+            </div>            
+            <ng-template #loginTemp>
+              <div [routerLink]="['/login-antd']">
+                <span >Login</span>&nbsp;&nbsp;
+                <span nz-icon nzTheme="outline" nzType="logout"></span>
+              </div>
+          </ng-template>
+          </div>
+        </div>
+      </div>
+
+    </nz-header>
+    <nz-content>
+      <app-welcome></app-welcome>
+      <div class="inner-content" style="overflow-y:auto; width: 100%;">
+        <div class="content">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </nz-content>
+      <!-- Footer -->
+    <nz-footer  style="display: flex; justify-content:center; align-items: center;">
+      Love Angular?&nbsp;
+      <a href="https://github.com/angular/angular" target="_blank" rel="noopener"> Give our repo a star.
+      </a>
+      <div class="github-star-badge">
+          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        Star
+      </div>
+      <a href="https://github.com/angular/angular" target="_blank" rel="noopener">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+      </a>
+      <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+        <title>Gray Clouds Background</title>
+        <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
+      </svg>
+    </nz-footer>
+  </nz-layout>
+</nz-layout>
+

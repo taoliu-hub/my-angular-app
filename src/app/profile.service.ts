@@ -3,67 +3,70 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { shareReplay, tap } from 'rxjs/operators';
+import { Buffer } from 'buffer';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
 
-  user: any;
-  isLoggedIn: boolean = false;
-  authData$: Observable<any> | undefined;
+  authData$!: Observable<any> | null;
+  authInfo:any;
 
   constructor(
     private http: HttpClient,
     private router: Router) {
-    if (sessionStorage.getItem('userInfo')) {
-      this.getUserByUserId();
-    }
+      this.authInfo = this.getDecryptionObj("token");
+      console.log("authInfo is not null: ==>", !!this.authInfo)
+      this.setAuthData$();
   }
 
-
-  getUserByUserId() {
-    let userJSONString = sessionStorage.getItem('userInfo');
-    this.authData$ = this.http.get(`http://localhost:3000/users/${userJSONString ? JSON.parse(userJSONString)?.id : ''}`)
+  setAuthData$() {
+    if(this.authInfo) {
+      this.authData$ = this.http.get(`http://localhost:3000/users/${this.authInfo?.id}`)
       .pipe(
         tap(console.log),
         shareReplay()   // one call for： this.data$.subscribe();
       );
+    } else {
+      this.authData$ = null;
+    }
   }
 
   /**
    * updateLoggedStatus
    */
   updateLoggedStatus(body: any) {
-    this.authData$ = this.http.put(`http://localhost:3000/users/${body?.id}`, body)
-      .pipe(
-        tap(console.log),
-        shareReplay()   // one call for： this.data$.subscribe();
-      );
-    return this.authData$;
+    return this.http.put(`http://localhost:3000/users/${body?.id}`, body);
   }
 
   /**
    * loggedInStatus
    */
-  async getLoginStatus(): Promise<boolean> {
+  getLoginStatus(): boolean {
     //check ig user is logged in
-    await this.authData$?.toPromise().then(data => {
-      // console.log(data);
-      // console.log(data?.username);
-      this.isLoggedIn = data?.isLoggedIn;
-    })
-    return this.isLoggedIn;
+    return this.authInfo ? this.authInfo?.isLoggedIn : false;
   }
 
-  setLoginStatus(authData: boolean) {
-    sessionStorage.setItem('loginStatus', authData?.toString());
-  }
-
+  /**
+   * show error
+   */
   showMessage(type: string, code: string) {
     this.router.navigateByUrl(`/message?type=${type}&code=${code}`);
   }
 
+  public setEncryptionObj(key: string, obj: any): void {
+    const username = localStorage.getItem('username');
+    localStorage[key] = Buffer.from(username + "&" + key + "=" + JSON.stringify(obj)).toString('base64');
+  }
+
+  public getDecryptionObj(key: string):  null {
+    if (key && localStorage[key]) {
+      const objStr = new URLSearchParams(Buffer.from(localStorage[key], 'base64').toString()).get(key);
+      return objStr ? JSON.parse(objStr) : null;
+    }
+    return null;
+  }
 
 
 }

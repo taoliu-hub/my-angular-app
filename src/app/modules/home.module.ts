@@ -8,6 +8,7 @@ import { ProductDetailsComponent } from '../components/products/product-details/
 import { ParentComponent } from '../components/parent/parent.component';
 import { ChildComponent } from '../components/child/child.component';
 import { WorkingWithFormsComponent } from '../components/working-with-forms/working-with-forms.component';
+import { WorkingWithExcelComponent } from '../components/working-with-excel/working-with-excel.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { WorkingWithFormsComponent } from '../components/working-with-forms/work
     ParentComponent,
     ChildComponent,
     WorkingWithFormsComponent,
+    WorkingWithExcelComponent,
   ],
   imports: [
     CommonShareModule,

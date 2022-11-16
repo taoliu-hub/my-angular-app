@@ -4,40 +4,14 @@
       "username": "liu123tao321@163.com",
       "password": "123456",
       "confirmPassword": "123456",
-      "nickname": "Tao",
-      "phoneNumberPrefix": "+86",
+      "nickname": "Mr. K",
+      "phoneNumberPrefix": " 86",
       "phoneNumber": "183xxxxxxxx",
       "website": "https://taoliu-hub.github.io/",
       "captcha": "123456",
       "agree": true,
       "isLoggedIn": true,
       "id": 1
-    },
-    {
-      "username": "liutao@163.com",
-      "password": "123456",
-      "confirmPassword": "123456",
-      "nickname": "Tao",
-      "phoneNumberPrefix": "+86",
-      "phoneNumber": "183xxxxxxxx",
-      "website": "https://taoliu-hub.github.io/",
-      "captcha": "23456",
-      "agree": true,
-      "isLoggedIn": false,
-      "id": 2
-    },
-    {
-      "username": "liutao@126.com",
-      "password": "123456",
-      "confirmPassword": "123456",
-      "nickname": "Tao",
-      "phoneNumberPrefix": "+86",
-      "phoneNumber": "183xxxxxxxxx",
-      "website": "https://taoliu-hub.github.io/",
-      "captcha": "134",
-      "agree": false,
-      "isLoggedIn": false,
-      "id": 3
     }
   ],
   "customers": [

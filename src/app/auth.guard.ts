@@ -22,10 +22,14 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     // console.log("route: ", route);
-    console.log("state: ", state);
+    console.log("state: ===>", state);
     // console.log("data: ", route.data);
+    console.log(this.authService.isAuthorized());
     if(!this.authService.isAuthorized()){
-      this.dialogService.noAccess("Permission", "You have no access.");
+      this.dialogService.noAccess("Permission", "You have no access.").result.then(data => {
+        console.log(data)
+        history.back();
+      });
       return false;
     } else {
       return true;

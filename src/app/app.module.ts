@@ -20,16 +20,17 @@ import en from '@angular/common/locales/en';
 import zh from '@angular/common/locales/zh';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NzResultModule } from 'ng-zorro-antd/result';
-import { NzButtonModule } from 'ng-zorro-antd/button';
 import { LoginAntdComponent } from './components/login-antd/login-antd.component';
+import { RegisterAntdComponent } from './components/register-antd/register-antd.component';
+import { IconAntdComponent } from './components/icon-antd/icon-antd.component';
 
 registerLocaleData(en);
 registerLocaleData(zh);
 
 /** 配置 ng-zorro-antd 国际化 **/
-import { en_US, NzI18nService, NZ_I18N, zh_CN } from 'ng-zorro-antd/i18n';
-import { RegisterAntdComponent } from './components/register-antd/register-antd.component';
+import { en_US, NzI18nService, NZ_I18N, zh_CN, zh_HK, zh_TW } from 'ng-zorro-antd/i18n';
+import { IndexComponent } from './components/index/index.component';
+import { AngularCommandComponent } from './components/angular-command/angular-command.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,9 @@ import { RegisterAntdComponent } from './components/register-antd/register-antd.
     PopUpWindowComponent,
     LoginAntdComponent,
     RegisterAntdComponent,
+    IconAntdComponent,
+    IndexComponent,
+    AngularCommandComponent
   ],
   imports: [
     BrowserModule,
@@ -59,14 +63,17 @@ import { RegisterAntdComponent } from './components/register-antd/register-antd.
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptorService, multi: true },
     {
       provide: NZ_I18N, useFactory: (localId: string) => {
+        console.log(localId);
         switch (localId) {
           case 'en':
             return en_US;
           /** 与 angular.json i18n/locales 配置一致 **/
           case 'zh':
             return zh_CN;
+          case 'hk':
+            return zh_HK;
           default:
-            return en_US;
+            return zh_TW;
         }
       },
       deps: [LOCALE_ID]
@@ -80,6 +87,6 @@ export class AppModule {
   constructor(private i18n: NzI18nService) { }
 
   switchLanguage() {
-    this.i18n.setLocale(en_US);
+    this.i18n.setLocale(zh_TW);
   }
 }
