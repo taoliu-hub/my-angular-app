@@ -2,11 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth.guard';
 import { HomeComponent } from '../components/home/home.component';
-import { ParentComponent } from '../components/parent/parent.component';
-import { ProductDetailsComponent } from '../components/products/product-details/product-details.component';
-import { ProductComponent } from '../components/products/product/product.component';
-import { WorkingWithExcelComponent } from '../components/working-with-excel/working-with-excel.component';
-import { WorkingWithFormsComponent } from '../components/working-with-forms/working-with-forms.component';
+import { ParentComponent } from '../components/home/parent/parent.component';
+import { ProductDetailsComponent } from '../components/home/products/product-details/product-details.component';
+import { ProductComponent } from '../components/home/products/product/product.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,8 +16,6 @@ const routes: Routes = [
     ]
   },
   {path: 'parent', canActivate:[AuthGuard], component: ParentComponent },
-  {path: 'woring-with-forms', canActivate:[AuthGuard], component: WorkingWithFormsComponent },
-  {path: 'woring-with-excels', canActivate:[AuthGuard], component: WorkingWithExcelComponent },  
 ];
 
 @NgModule({

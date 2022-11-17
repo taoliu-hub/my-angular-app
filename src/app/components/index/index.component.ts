@@ -9,7 +9,7 @@ import { ProfileService } from 'src/app/profile.service';
 })
 export class IndexComponent implements OnInit {
 
-  isCollapsed = false;
+  isCollapsed = true;
   authData: any;
 
   constructor(

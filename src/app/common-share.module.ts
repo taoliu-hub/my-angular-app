@@ -24,6 +24,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    NgZorroAntdModule,
+    IconsProviderModule
   ],
   exports: [
     ClassifyPipe,

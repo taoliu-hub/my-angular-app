@@ -8,8 +8,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { CommonShareModule } from './common-share.module';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ProfileService } from './profile.service';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/signin-or-signout/login/login.component';
+import { RegisterComponent } from './components/signin-or-signout/register/register.component';
 import { MessageComponent } from './components/message/message.component';
 import { PopUpWindowComponent } from './components/pop-up-window/pop-up-window.component';
 import { HeaderInterceptorService } from './header-interceptor.service';
@@ -20,9 +20,9 @@ import en from '@angular/common/locales/en';
 import zh from '@angular/common/locales/zh';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginAntdComponent } from './components/login-antd/login-antd.component';
-import { RegisterAntdComponent } from './components/register-antd/register-antd.component';
-import { IconAntdComponent } from './components/icon-antd/icon-antd.component';
+import { LoginAntdComponent } from './components/ant-design/login-antd/login-antd.component';
+import { RegisterAntdComponent } from './components/ant-design/register-antd/register-antd.component';
+import { IconAntdComponent } from './components/ant-design/icon-antd/icon-antd.component';
 
 registerLocaleData(en);
 registerLocaleData(zh);
@@ -30,7 +30,8 @@ registerLocaleData(zh);
 /** 配置 ng-zorro-antd 国际化 **/
 import { en_US, NzI18nService, NZ_I18N, zh_CN, zh_HK, zh_TW } from 'ng-zorro-antd/i18n';
 import { IndexComponent } from './components/index/index.component';
-import { AngularCommandComponent } from './components/angular-command/angular-command.component';
+import { AngularCommandComponent } from './components/home/angular-command/angular-command.component';
+import { WorkingMenuModule } from './components/working-menu/working-menu.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { AngularCommandComponent } from './components/angular-command/angular-co
     HttpClientModule,
     NgbModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    WorkingMenuModule
   ],
   exports: [
     PageNotFoundComponent,

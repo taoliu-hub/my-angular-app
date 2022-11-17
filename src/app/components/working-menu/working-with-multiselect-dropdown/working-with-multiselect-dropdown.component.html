@@ -1,0 +1,12 @@
+<div style="width: 200px;">
+  <ng-multiselect-dropdown class="multiselect-option-inline" name="select_Levels" 
+    [placeholder]="'Select'" 
+    [(ngModel)]="selectLevelList" 
+    [settings]="levelDropdownSettings"
+    [data]="levelDropDownList" 
+    (onSelect)="onLevelSelect($event)"
+    (onSelectAll)="onLevelSelectAll($event)" 
+    (onDeSelect)="onLevelSelectDeSelect($event)"
+    (onDeSelectAll)="onLevelSelectDeAll($event)">
+  </ng-multiselect-dropdown>
+</div>

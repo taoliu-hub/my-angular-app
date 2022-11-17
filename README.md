@@ -30,3 +30,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Project 
 
 Use ng-zorro-antd, ngx-pagination, bootstrap, lodash, json-server
+
+
+## ng2-charts  chart.js 
+# 如果直接安装，默认会用最新版本
+
+https://valor-software.com/ng2-charts/       https://valor-software.com/ng2-charts/#/BarChart
+npm install ng2-charts@2.3.0 --save
+npm install chart.js@2.9.3 --save
+npm install chartjs-plugin-datalabels --save //显示图表中的数值

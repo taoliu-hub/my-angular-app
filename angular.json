@@ -38,7 +38,11 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "src/assets/JS/randomgen.js"
+              "src/assets/js/randomgen.js",
+              "src/assets/js/jquery-3.5.1.min.js",
+              "src/assets/js/popper.min.js",
+              "src/assets/js/bootstrap.min.js"
+	      
             ],
             "allowedCommonJsDependencies": []
           },
