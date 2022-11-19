@@ -7,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
+  title = 'Angular version: 11.2.10';
+
   constructor() { }
 
-  ngOnInit(): void {
-    console.log("Method: ngOnInit ==> WelcomeComponent");
+  ngOnInit() {
   }
 
 }

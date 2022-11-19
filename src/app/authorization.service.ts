@@ -10,7 +10,7 @@ export class AuthorizationService {
 
   public isAuthorized(): boolean {
     let isLoggedIn = this.profileService.getLoginStatus();
-    console.log("isLoggedIn ==>", isLoggedIn);
+    // console.log("isLoggedIn ==>", isLoggedIn);
     return !isLoggedIn ? false : true;
   }
 

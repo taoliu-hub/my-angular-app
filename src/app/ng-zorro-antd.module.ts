@@ -27,8 +27,8 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzGridModule } from 'ng-zorro-antd/grid';
-import { NzI18nModule } from 'ng-zorro-antd/i18n';
-import { NzIconModule } from 'ng-zorro-antd/icon';
+import { en_US, NzI18nModule, NZ_I18N } from 'ng-zorro-antd/i18n';
+import { NzIconModule, NZ_ICONS } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
@@ -65,6 +65,14 @@ import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzResizableModule } from 'ng-zorro-antd/resizable';
+import { IconDefinition } from '@ant-design/icons-angular';
+
+import { MenuFoldOutline, MenuUnfoldOutline, FormOutline, DashboardOutline } from '@ant-design/icons-angular/icons';
+const icons: IconDefinition[] = [MenuFoldOutline, MenuUnfoldOutline, DashboardOutline, FormOutline];
+
+// import * as AllIcons from '@ant-design/icons-angular/icons';
+// const antDesignIcons = AllIcons as { [key: string]: IconDefinition; };
+// const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key])
 
 @NgModule({
   exports: [
@@ -133,6 +141,7 @@ import { NzResizableModule } from 'ng-zorro-antd/resizable';
     NzUploadModule,
     NzWaveModule,
     NzResizableModule
-  ]
+  ],
+  providers   : [ { provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons } ]
 })
 export class NgZorroAntdModule { }

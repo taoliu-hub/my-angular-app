@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-pop-up-window',
-  templateUrl: './pop-up-window.component.html',
-  styleUrls: ['./pop-up-window.component.css']
+  selector: 'app-okay-cancel',
+  templateUrl: './okay-cancel.component.html',
+  styleUrls: ['./okay-cancel.component.css']
 })
-export class PopUpWindowComponent implements OnInit {
+export class OkayCancelComponent implements OnInit {
 
   title:string = '';
   message:string = '';
@@ -26,6 +26,5 @@ export class PopUpWindowComponent implements OnInit {
   proceed() {
     this.activeModal.close('proceed');
   }
-
 
 }

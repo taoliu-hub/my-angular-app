@@ -19,37 +19,7 @@
       "customerName": "taoliu",
       "email": "tao.liu@email.com",
       "password": "",
-      "id": 2
-    },
-    {
-      "customerName": "wwww",
-      "email": "",
-      "password": "",
-      "id": 3
-    },
-    {
-      "customerName": "t123",
-      "email": "tao.liu@email.com",
-      "password": "",
-      "id": 4
-    },
-    {
-      "customerName": "ta",
-      "email": "",
-      "password": "",
-      "id": 5
-    },
-    {
-      "customerName": "ta",
-      "email": "",
-      "password": "",
-      "id": 6
-    },
-    {
-      "customerName": "taoliu",
-      "email": "",
-      "password": "SQQWQW",
-      "id": 7
+      "id": 1
     }
   ],
   "todos": [

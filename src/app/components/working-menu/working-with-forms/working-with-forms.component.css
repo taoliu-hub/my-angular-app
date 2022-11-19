@@ -9,3 +9,8 @@ form>label {
 .error {
   color: red;
 }
+
+label {
+  width: 90px;
+  text-align: left;
+}

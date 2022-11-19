@@ -26,7 +26,7 @@ export class WorkingWithFormsComponent implements OnInit {
     this.data$ = this.http.get("http://localhost:3000/customers")
       .pipe(
         tap(console.log),
-        shareReplay()   // one call for： this.data$.subscribe();
+        shareReplay()   // one call for: this.data$.subscribe();
       );
 
   }
@@ -42,20 +42,25 @@ export class WorkingWithFormsComponent implements OnInit {
     alert(this.name.value);
   }
 
+  id: number = 1;
   // validation pending
   onSubmitBasic(form: NgForm) {
     // console.log(form);
     console.log(form.value);
-    this.http.post("http://localhost:3000/customers", form.value).subscribe(data => {
-      console.log(data);
+    this.http.post("http://localhost:3000/customers", form.value).subscribe((data:any) => {
+      alert(`Success: add data for customers with id = ${data?.id}, customerName = ${data?.customerName}`);
+      this.id = data?.id;
     })
   }
 
   deleteDocument() {
-    this.http.delete("http://localhost:3000/customers/1").subscribe();
+    this.http.delete(`http://localhost:3000/customers/${this.id}`).subscribe(
+      data => {
+        alert(`Success: delete data for customers with id = ${this.id}.`);
+      }, err => {
+        alert(`Failed: no data for id = ${this.id}.`);
+      }
+    );
   }
-
-
-
 
 }

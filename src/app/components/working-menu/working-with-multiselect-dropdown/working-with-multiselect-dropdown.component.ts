@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkingWithMultiselectDropdownComponent implements OnInit {
 
-
   selectLevelList = [];
   levelDropDownList = [{value:'SECONDARY 1'},{value:'SECONDARY 2'},{value:'SECONDARY 3'},{value:'SECONDARY 4'},{value:'SECONDARY 5'}];
 
@@ -23,6 +22,7 @@ export class WorkingWithMultiselectDropdownComponent implements OnInit {
     selectAllLebelText: 'All Levels',
   }
 
+  constructor() { }
 
   ngOnInit(): void {
   }

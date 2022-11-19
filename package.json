@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "set NODE_OPTIONS=--openssl-legacy-provider && ng serve",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && ng build",
-    "test": "set NODE_OPTIONS=--openssl-legacy-provider && ng test",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "server": "json-server --watch ./src/app/data/db.json"
@@ -45,7 +45,6 @@
     "@angular-devkit/build-angular": "~0.1102.9",
     "@angular/cli": "~11.2.9",
     "@angular/compiler-cli": "~11.2.10",
-    "@types/chartjs-plugin-annotation": "^0.5.2",
     "@types/events": "^3.0.0",
     "@types/file-saver": "^2.0.5",
     "@types/jasmine": "~3.6.0",

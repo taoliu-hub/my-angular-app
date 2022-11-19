@@ -10,6 +10,7 @@ import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { IconsProviderModule } from './icons-provider.module';
+import { HttpClientModule } from '@angular/common/http';
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
@@ -19,18 +20,11 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
   declarations: [
     ClassifyPipe,
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgxPaginationModule,
-    NgZorroAntdModule,
-    IconsProviderModule
-  ],
   exports: [
     ClassifyPipe,
-    FormsModule,
     CommonModule,
+    HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
     NgZorroAntdModule,

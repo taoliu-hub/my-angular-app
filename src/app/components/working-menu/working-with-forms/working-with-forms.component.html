@@ -5,18 +5,20 @@
     <input type="email" [(ngModel)]="email" name="email"><br /><br />
     <input type="password" [(ngModel)]="password" name="password"><br /><br /> -->
 
-    <label for="customerName">Name: </label><br />
+    <label for="customerName">Name: </label>
     <input id="customerName" type="text" [(ngModel)]="customerName" name="customerName"><br />
-    <label for="email">Email: </label><br />
+    <label for="email">Email: </label>
     <input id="email" type="email" [(ngModel)]="email" name="email" name="email"><br />
-    <label for="password">Password: </label><br />
+    <label for="password">Password: </label>
     <input id="password" type="password" [(ngModel)]="password" name="password" required minlength="4"><br /><br />
 
     <div style="justify-content: center;">
       <button style="margin: 15px;" type="submit" [disabled]="!customerForm.form.valid">Register</button>
-      <button style="margin: 15px;" (click)="deleteDocument()">Delete</button><br />
     </div>
   </form>
+  <div style="justify-content: center;">
+    <button style="margin: 15px;" (click)="deleteDocument()">Delete</button><br />
+  </div>
 </div>
 
 <div class="content" role="main">

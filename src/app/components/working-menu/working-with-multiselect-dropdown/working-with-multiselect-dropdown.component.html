@@ -1,5 +1,7 @@
-<div style="width: 200px;">
-  <ng-multiselect-dropdown class="multiselect-option-inline" name="select_Levels" 
+<div style="display: inline-flex;">
+  <label>Multiselect Dropdown: </label>
+  <ng-multiselect-dropdown class="multiselect-option-inline" style="width: 200px;" 
+    name="select_Levels" 
     [placeholder]="'Select'" 
     [(ngModel)]="selectLevelList" 
     [settings]="levelDropdownSettings"

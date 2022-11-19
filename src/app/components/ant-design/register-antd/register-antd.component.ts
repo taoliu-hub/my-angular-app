@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 
-const EMAIL_REGEXP = /^(?=.{1,254}$)(?=.{1,64}@)[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 @Component({
   selector: 'app-register-antd',
   templateUrl: './register-antd.component.html',
@@ -20,13 +19,15 @@ export class RegisterAntdComponent implements OnInit {
 
   existsUser = [];
   async submitForm(): Promise<void> {
-    for (const i in this.validateForm.controls) {
-      this.validateForm.controls[i].markAsDirty();
-      this.validateForm.controls[i].updateValueAndValidity();
-    }
-    console.log(this.validateForm.value);
     if (this.validateForm.invalid) {
+      console.log('submit', this.validateForm.value);
       return;
+    } else {
+      
+      for (const i in this.validateForm.controls) {
+        this.validateForm.controls[i].markAsDirty();
+        this.validateForm.controls[i].updateValueAndValidity();
+      }
     }
     console.log(JSON.stringify(this.validateForm.value, null, 2));
     await this.http.post("http://localhost:3000/users", this.validateForm.value).toPromise().then(data => {
@@ -94,23 +95,7 @@ export class RegisterAntdComponent implements OnInit {
       return { isDuplicateEmail: true, error: true };
     }
     return {};
-  };
-
-  // Override emailValidator function from @angular\forms\fesm2015\forms.js
-  // emailValidator(control: FormControl): { [s: string]: boolean; } {
-  //   if (control.value == null || control.value.length === 0) {
-  //     return {}; // don't validate empty values to allow optional controls
-  //   }
-  //   return EMAIL_REGEXP.test(control.value) ? {} : { 'email': true };
-  // }
-  
+  };  
   
 }
 
-// Override emailValidator function from @angular\forms\fesm2015\forms.js
-function emailValidator(control: FormControl) : { [s: string]: boolean } {
-  if (control.value == null || control.value.length === 0) {
-      return {}; // don't validate empty values to allow optional controls
-  }
-  return EMAIL_REGEXP.test(control.value) ? {} : { 'email': true };
-}

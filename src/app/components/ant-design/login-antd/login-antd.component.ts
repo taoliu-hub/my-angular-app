@@ -15,13 +15,32 @@ export class LoginAntdComponent implements OnInit {
   user: any;
   validateForm!: FormGroup;
 
+  constructor(
+    private profileService : ProfileService,
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+  ) {
+    localStorage.clear();
+  }
+
+  ngOnInit(): void {
+    this.validateForm = this.fb.group({
+      username: [null, [Validators.required]],
+      password: [null, [Validators.required]],
+      remember: [true]
+    });
+  }
+
   submitForm(): void {
-    for (const i in this.validateForm.controls) {
-      this.validateForm.controls[i].markAsDirty();
-      this.validateForm.controls[i].updateValueAndValidity();
-    }
     if (this.validateForm.invalid) {
+      console.log('submit', this.validateForm.value);
       return;
+    } else {
+      for (const i in this.validateForm.controls) {
+        this.validateForm.controls[i].markAsDirty();
+        this.validateForm.controls[i].updateValueAndValidity();
+      }
     }
     console.log(JSON.stringify(this.validateForm.value, null, 2));
     this.http.get<any>(`http://localhost:3000/users?username=${this.validateForm.value.username}&password=${this.validateForm.value.password}`).subscribe(async data => {
@@ -48,20 +67,4 @@ export class LoginAntdComponent implements OnInit {
       })
   }
 
-  constructor(
-    private profileService : ProfileService,
-    private fb: FormBuilder,
-    private http: HttpClient,
-    private router: Router
-  ) {
-    localStorage.clear();
-  }
-
-  ngOnInit(): void {
-    this.validateForm = this.fb.group({
-      username: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-      remember: [true]
-    });
-  }
 }

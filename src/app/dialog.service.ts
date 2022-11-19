@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, of } from 'rxjs';
-import { MessageComponent } from './components/message/message.component';
-import { PopUpWindowComponent } from './components/pop-up-window/pop-up-window.component';
+import { OkayCancelComponent } from './components/pop-up-window/okay-cancel/okay-cancel.component';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +23,7 @@ export class DialogService {
   };
 
   noAccess(title: string, message: string) {
-    const viewModal = this.modalService.open(PopUpWindowComponent, { size: 'lg' });
+    const viewModal = this.modalService.open(OkayCancelComponent, { size: 'lg' });
     // const viewModal = this.modalService.open(MessageComponent, { windowClass: 'pop-class' });  // Customize class style
     viewModal.componentInstance.title = title;
     viewModal.componentInstance.message = message;
