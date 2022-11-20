@@ -57,7 +57,7 @@ export class RegisterComponent implements OnInit {
     return this.form.controls;
   }
 
-  existsUser = [];
+  existsUser: any = [];
   async onSubmit(): Promise<void> {
     this.submitted = true;
     console.log("this.form", this.form.errors)

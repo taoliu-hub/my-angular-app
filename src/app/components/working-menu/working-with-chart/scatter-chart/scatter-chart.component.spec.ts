@@ -1,4 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgChartsModule } from 'ng2-charts';
 
 import { ScatterChartComponent } from './scatter-chart.component';
 
@@ -6,12 +7,12 @@ describe('ScatterChartComponent', () => {
   let component: ScatterChartComponent;
   let fixture: ComponentFixture<ScatterChartComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ ScatterChartComponent ]
-    })
-    .compileComponents();
-  });
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ ScatterChartComponent ],
+      imports: [ NgChartsModule ]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ScatterChartComponent);
@@ -19,7 +20,7 @@ describe('ScatterChartComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should compile', () => {
     expect(component).toBeTruthy();
   });
 });

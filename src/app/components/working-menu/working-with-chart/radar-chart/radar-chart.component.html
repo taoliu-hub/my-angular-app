@@ -1,9 +1,11 @@
 <div class="chartjs-chart-wrapper">
-  <canvas
-    baseChart
-    [datasets]="radarChartData"
-    [options]="radarChartOptions"
-    [labels]="radarChartLabels"
-    [chartType]="radarChartType">
-  </canvas>
+  <div>
+    <div style="display: block">
+      <canvas baseChart
+        [data]="radarChartData"
+        [options]="radarChartOptions"
+        [type]="radarChartType">
+      </canvas>
+    </div>
+  </div>
 </div>

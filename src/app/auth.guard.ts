@@ -31,7 +31,6 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
         this.router.navigate(['/login-antd']);
       });
       return false;
-
     } else if(!this.authService.isAuthorized()){
       this.dialogService.noAccess("Permission", "You have no access.").result.then(data => {
         console.log(data)

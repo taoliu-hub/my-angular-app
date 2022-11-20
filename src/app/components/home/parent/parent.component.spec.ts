@@ -11,9 +11,7 @@ describe('ParentComponent', () => {
       declarations: [ ParentComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(ParentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

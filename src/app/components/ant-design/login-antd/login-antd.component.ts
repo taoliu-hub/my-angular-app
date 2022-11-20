@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as _ from 'lodash';
 import { ProfileService } from 'src/app/profile.service';
@@ -11,13 +11,12 @@ import { ProfileService } from 'src/app/profile.service';
   styleUrls: ['./login-antd.component.css']
 })
 export class LoginAntdComponent implements OnInit {
-
   user: any;
-  validateForm!: FormGroup;
+  validateForm!: UntypedFormGroup;
 
   constructor(
     private profileService : ProfileService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private http: HttpClient,
     private router: Router
   ) {
@@ -33,14 +32,15 @@ export class LoginAntdComponent implements OnInit {
   }
 
   submitForm(): void {
-    if (this.validateForm.invalid) {
+    if (this.validateForm.valid) {
       console.log('submit', this.validateForm.value);
-      return;
     } else {
-      for (const i in this.validateForm.controls) {
-        this.validateForm.controls[i].markAsDirty();
-        this.validateForm.controls[i].updateValueAndValidity();
-      }
+      Object.values(this.validateForm.controls).forEach(control => {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.updateValueAndValidity({ onlySelf: true });
+        }
+      });
     }
     console.log(JSON.stringify(this.validateForm.value, null, 2));
     this.http.get<any>(`http://localhost:3000/users?username=${this.validateForm.value.username}&password=${this.validateForm.value.password}`).subscribe(async data => {
@@ -66,5 +66,4 @@ export class LoginAntdComponent implements OnInit {
         console.log("error: ", error);
       })
   }
-
 }

@@ -1,4 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgChartsModule } from 'ng2-charts';
 
 import { DoughnutChartComponent } from './doughnut-chart.component';
 
@@ -6,12 +7,12 @@ describe('DoughnutChartComponent', () => {
   let component: DoughnutChartComponent;
   let fixture: ComponentFixture<DoughnutChartComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ DoughnutChartComponent ]
-    })
-    .compileComponents();
-  });
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ DoughnutChartComponent ],
+      imports: [ NgChartsModule ]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DoughnutChartComponent);
@@ -19,7 +20,7 @@ describe('DoughnutChartComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should compile', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -5,11 +5,11 @@
     <input type="email" [(ngModel)]="email" name="email"><br /><br />
     <input type="password" [(ngModel)]="password" name="password"><br /><br /> -->
 
-    <label for="customerName">Name: </label>
+    <label for="customerName" class="form-label">Name: </label>
     <input id="customerName" type="text" [(ngModel)]="customerName" name="customerName"><br />
-    <label for="email">Email: </label>
+    <label for="email" class="form-label">Email: </label>
     <input id="email" type="email" [(ngModel)]="email" name="email" name="email"><br />
-    <label for="password">Password: </label>
+    <label for="password" class="form-label">Password: </label>
     <input id="password" type="password" [(ngModel)]="password" name="password" required minlength="4"><br /><br />
 
     <div style="justify-content: center;">
@@ -25,9 +25,9 @@
   <h2>Learn Input Handling using forms</h2>
   <input [formControl]="name" />
   <label *ngIf="name.invalid" [ngClass]="'error'">
-    <ng-container *ngIf="this.name.errors?.required; else otherTemp">Name can not be null. </ng-container>
+    <ng-container *ngIf="this.name.errors?.['required']; else otherTemp">Name can not be null. </ng-container>
     <ng-template #otherTemp>
-      <ng-container *ngIf="this.name.errors?.minlength; else maxTemp">Name required with min 6 character. </ng-container>
+      <ng-container *ngIf="this.name.errors?.['minlength']; else maxTemp">Name required with min 6 character. </ng-container>
       <ng-template #maxTemp>Name required with max 15 character. </ng-template>
     </ng-template>
   </label>
