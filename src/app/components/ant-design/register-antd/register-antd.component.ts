@@ -14,7 +14,7 @@ export class RegisterAntdComponent implements OnInit {
 
 
 
-  validateForm!: UntypedFormGroup;
+  validateForm!: FormGroup;
   captchaTooltipIcon: NzFormTooltipIcon = {
     type: 'info-circle',
     theme: 'twotone'
@@ -26,12 +26,10 @@ export class RegisterAntdComponent implements OnInit {
       console.log('submit', this.validateForm.value);
       return;
     } else {
-      Object.values(this.validateForm.controls).forEach(control => {
-        if (control.invalid) {
-          control.markAsDirty();
-          control.updateValueAndValidity({ onlySelf: true });
-        }
-      });
+      for (const i in this.validateForm.controls) {
+        this.validateForm.controls[i].markAsDirty();
+        this.validateForm.controls[i].updateValueAndValidity();
+      }
     }
     console.log(JSON.stringify(this.validateForm.value, null, 2));
     await this.http.post("http://localhost:3000/users", this.validateForm.value).toPromise().then(data => {
