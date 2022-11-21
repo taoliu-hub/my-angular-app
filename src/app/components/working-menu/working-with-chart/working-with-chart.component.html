@@ -1,12 +1,54 @@
 <p>working-with-chart works!</p>
-<div class="text-nowrap">
-  <app-line-chart></app-line-chart>
-  <app-bar-chart></app-bar-chart>
-  <app-doughnut-chart></app-doughnut-chart>
-  <app-radar-chart></app-radar-chart>
-  <app-pie-chart></app-pie-chart>
-  <app-polar-area-chart></app-polar-area-chart>
-  <app-bubble-chart></app-bubble-chart>
-  <app-scatter-chart></app-scatter-chart>
-  <app-dynamic-chart></app-dynamic-chart>
+<button nz-button nzType="primary" [routerLink]="['/index/working-menu/woring-with-charts']">
+  <a>
+    <span nz-icon nzTheme="outline" nzType="area-chart"></span>&nbsp;all
+  </a>
+</button>
+<button nz-button nzType="primary" [routerLink]="['/index/working-menu/woring-with-charts/bar-chart']">
+  <a>
+    <span nz-icon nzTheme="outline" nzType="bar-chart"></span>&nbsp;bar-chart
+  </a>
+</button>
+<button nz-button nzType="primary" [routerLink]="['/index/working-menu/woring-with-charts/bubble-chart']">
+  <a>
+    <span nz-icon nzTheme="outline" nzType="dot-chart"></span>&nbsp;bubble-chart
+  </a>
+</button>
+<button nz-button nzType="primary" [routerLink]="['/index/working-menu/woring-with-charts/doughnut-chart']">
+  <a>
+    <span nz-icon nzTheme="outline" nzType="picture"></span>&nbsp;doughnut-chart
+  </a>
+</button>
+<button nz-button nzType="primary" [routerLink]="['/index/working-menu/woring-with-charts/dynamic-chart']">
+  <a>
+    <span nz-icon nzTheme="outline" nzType="picture"></span>&nbsp;dynamic-chart
+  </a>
+</button>
+<button nz-button nzType="primary" [routerLink]="['/index/working-menu/woring-with-charts/line-chart']">
+  <a>
+    <span nz-icon nzTheme="outline" nzType="line-chart"></span>&nbsp;line-chart
+  </a>
+</button>
+<button nz-button nzType="primary" [routerLink]="['/index/working-menu/woring-with-charts/pie-chart']">
+  <a>
+    <span nz-icon nzTheme="outline" nzType="pie-chart"></span>&nbsp;pie-chart
+  </a>
+</button>
+<button nz-button nzType="primary" [routerLink]="['/index/working-menu/woring-with-charts/polarArea-chart']">
+  <a>
+    <span nz-icon nzTheme="outline" nzType="pie-chart"></span>&nbsp;polarArea-chart
+  </a>
+</button>
+<button nz-button nzType="primary" [routerLink]="['/index/working-menu/woring-with-charts/radar-chart']">
+  <a>
+    <span nz-icon nzTheme="outline" nzType="radar-chart"></span>&nbsp;radar-chart
+  </a>
+</button>
+<button nz-button nzType="primary" [routerLink]="['/index/working-menu/woring-with-charts/scatter-chart']">
+  <a>
+    <span nz-icon nzTheme="outline" nzType="dot-chart"></span>&nbsp;scatter-chart
+  </a>
+</button>
+<div style="display: inline-block;">
+  <router-outlet></router-outlet>
 </div>
