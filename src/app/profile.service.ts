@@ -60,7 +60,7 @@ export class ProfileService {
     localStorage[key] = Buffer.from(username + "&" + key + "=" + JSON.stringify(obj)).toString('base64');
   }
 
-  public getDecryptionObj(key: string):  null {
+  public getDecryptionObj(key: string): any {
     if (key && localStorage[key]) {
       const objStr = new URLSearchParams(Buffer.from(localStorage[key], 'base64').toString()).get(key);
       return objStr ? JSON.parse(objStr) : null;

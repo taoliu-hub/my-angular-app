@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-// import DatalabelsPlugin from 'chartjs-plugin-datalabels';
+import DatalabelsPlugin from 'chartjs-plugin-datalabels';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
@@ -27,13 +27,13 @@ export class PieChartComponent {
         color: 'green',
         text: 'Pie Chart'
       },
-      // datalabels: {
-      //   formatter: (value, ctx) => {
-      //     if (ctx.chart.data.labels) {
-      //       return ctx.chart.data.labels[ctx.dataIndex];
-      //     }
-      //   },
-      // },
+      datalabels: {
+        formatter: (value, ctx) => {
+          if (ctx.chart.data.labels) {
+            return ctx.chart.data.labels[ctx.dataIndex];
+          }
+        },
+      },
     }
   };
   public pieChartData: ChartData<'pie', number[], string | string[]> = {
@@ -43,8 +43,7 @@ export class PieChartComponent {
     } ]
   };
   public pieChartType: ChartType = 'pie';
-  // public pieChartPlugins = [ DatalabelsPlugin ];
-  public pieChartPlugins = [ ];
+  public pieChartPlugins = [ DatalabelsPlugin ];
 
   // events
   public chartClicked({ event, active }: { event: ChartEvent, active: {}[] }): void {

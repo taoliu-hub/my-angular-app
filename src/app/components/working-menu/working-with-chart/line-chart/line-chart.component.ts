@@ -164,7 +164,6 @@ export class LineChartComponent {
     if (this.lineChartData.labels) {
       this.lineChartData.labels[2] = [ '1st Line', '2nd Line' ];
     }
-
     this.chart?.update();
   }
 }
