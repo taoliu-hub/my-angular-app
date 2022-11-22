@@ -11,9 +11,7 @@ describe('IconAntdComponent', () => {
       declarations: [ IconAntdComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(IconAntdComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

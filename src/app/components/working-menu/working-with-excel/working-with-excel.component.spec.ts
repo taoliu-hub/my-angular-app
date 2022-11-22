@@ -11,9 +11,7 @@ describe('WorkingWithExcelComponent', () => {
       declarations: [ WorkingWithExcelComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(WorkingWithExcelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

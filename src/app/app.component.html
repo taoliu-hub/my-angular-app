@@ -109,6 +109,10 @@
                     <span nz-icon nzTheme="outline" nzType="dot-chart"></span>
                     <a [routerLink]="['/index/working-menu/woring-with-charts/scatter-chart']">scatter-chart</a>
                   </li>
+                  <li nz-menu-item nzMatchRouter>
+                    <span nz-icon nzTheme="outline" nzType="picture"></span>
+                    <a [routerLink]="['/index/working-menu/woring-with-charts/financial-chart']">financial-chart</a>
+                  </li>
                 </ul>
               </li>
               <li nz-menu-item nzMatchRouter>
@@ -131,10 +135,10 @@
       <div class="toolbar" role="banner">
         <div class="app-header">
           <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-              <i class="trigger" style="vertical-align: 0"
+              <span class="trigger" style="vertical-align: 0"
                 nz-icon
                 [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-              ></i>
+              ></span>
           </span>
         </div>
         <img

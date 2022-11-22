@@ -1,4 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgChartsModule } from 'ng2-charts';
 
 import { LineChartComponent } from './line-chart.component';
 
@@ -6,12 +7,12 @@ describe('LineChartComponent', () => {
   let component: LineChartComponent;
   let fixture: ComponentFixture<LineChartComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ LineChartComponent ]
-    })
-    .compileComponents();
-  });
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ LineChartComponent ],
+      imports: [ NgChartsModule ]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LineChartComponent);
@@ -19,7 +20,7 @@ describe('LineChartComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should compile', () => {
     expect(component).toBeTruthy();
   });
 });

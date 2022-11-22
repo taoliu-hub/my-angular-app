@@ -11,9 +11,7 @@ describe('WorkingWithChartComponent', () => {
       declarations: [ WorkingWithChartComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(WorkingWithChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

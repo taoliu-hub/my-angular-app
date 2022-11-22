@@ -1,9 +1,12 @@
-<div class="chartjs-chart-wrapper">
-  <canvas baseChart
-    [options]="polarAreaChartOptions"
-    [datasets]="polarAreaChartData"
-    [labels]="polarAreaChartLabels"
-    [legend]="polarAreaLegend"
-    [chartType]="polarAreaChartType">
-  </canvas>
+<div>
+  <div>
+    <div style="display: block">
+      <canvas baseChart
+        [data]="polarAreaChartData"
+        [options]="polarAreaChartOptions"
+        [legend]="polarAreaLegend"
+        [type]="polarAreaChartType">
+      </canvas>
+    </div>
+  </div>
 </div>

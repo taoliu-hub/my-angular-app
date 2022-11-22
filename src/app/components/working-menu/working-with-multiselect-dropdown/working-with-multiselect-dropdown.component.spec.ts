@@ -11,9 +11,7 @@ describe('WorkingWithMultiselectDropdownComponent', () => {
       declarations: [ WorkingWithMultiselectDropdownComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(WorkingWithMultiselectDropdownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

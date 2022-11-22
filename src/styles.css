@@ -8,16 +8,12 @@
   align-items: center;
 }
 
-.chartjs-chart-wrapper {
-  float: left;
-  margin: 15px;
-  text-align: center;
-  width: 450px; 
-  height: 260px;
-}
-
 a,
 a:visited,
 a:hover {
   text-decoration: none;
+}
+
+.ant-menu-item>.anticon {
+  margin-right: 10px;
 }

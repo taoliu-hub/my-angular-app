@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 
@@ -14,26 +14,28 @@ export class RegisterAntdComponent implements OnInit {
 
 
 
-  validateForm!: FormGroup;
+  validateForm!: UntypedFormGroup;
   captchaTooltipIcon: NzFormTooltipIcon = {
     type: 'info-circle',
     theme: 'twotone'
   };
 
-  existsUser = [];
+  existsUser:any = [];
   async submitForm(): Promise<void> {
-    if (this.validateForm.invalid) {
+    if (this.validateForm.valid) {
       console.log('submit', this.validateForm.value);
       return;
     } else {
-      for (const i in this.validateForm.controls) {
-        this.validateForm.controls[i].markAsDirty();
-        this.validateForm.controls[i].updateValueAndValidity();
-      }
+      Object.values(this.validateForm.controls).forEach(control => {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.updateValueAndValidity({ onlySelf: true });
+        }
+      });
     }
     console.log(JSON.stringify(this.validateForm.value, null, 2));
     await this.http.post("http://localhost:3000/users", this.validateForm.value).toPromise().then(data => {
-      alert("Registration succeeded.");
+      alert("Registration successed.");
       console.log("success: ", data);
       this.router.navigateByUrl(`/login`);
     },
@@ -45,13 +47,13 @@ export class RegisterAntdComponent implements OnInit {
 
   updateConfirmValidator(): void {
     /** wait for refresh value */
-    Promise.resolve().then(() => this.validateForm.controls.confirmPassword.updateValueAndValidity());
+    Promise.resolve().then(() => this.validateForm.controls['confirmPassword'].updateValueAndValidity());
   }
 
-  confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
+  confirmationValidator = (control: UntypedFormControl): { [s: string]: boolean } => {
     if (!control.value) {
       return { required: true };
-    } else if (control.value !== this.validateForm.controls.password.value) {
+    } else if (control.value !== this.validateForm.controls['password'].value) {
       return { confirm: true, error: true };
     }
     return {};
@@ -62,7 +64,7 @@ export class RegisterAntdComponent implements OnInit {
   }
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private http: HttpClient,
     private router: Router
   ) {
@@ -83,7 +85,7 @@ export class RegisterAntdComponent implements OnInit {
       isLoggedIn: [false]
     });
   }
-  
+
   getAllUsers(){
     return this.http.get<[]>("http://localhost:3000/users").toPromise();
   }

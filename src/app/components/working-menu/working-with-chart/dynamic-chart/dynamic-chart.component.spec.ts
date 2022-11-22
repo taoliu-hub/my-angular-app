@@ -11,9 +11,7 @@ describe('DynamicChartComponent', () => {
       declarations: [ DynamicChartComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(DynamicChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

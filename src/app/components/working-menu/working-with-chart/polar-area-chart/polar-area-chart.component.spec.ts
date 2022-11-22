@@ -11,9 +11,7 @@ describe('PolarAreaChartComponent', () => {
       declarations: [ PolarAreaChartComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(PolarAreaChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,7 +1,7 @@
 <p>working-with-chart works!</p>
 <button nz-button nzType="primary" [routerLink]="['/index/working-menu/woring-with-charts']">
   <a>
-    <span nz-icon nzTheme="outline" nzType="area-chart"></span>&nbsp;all
+    <span nz-icon nzTheme="outline" nzType="area-chart"></span>&nbsp;all (not included line-chart)
   </a>
 </button>
 <button nz-button nzType="primary" [routerLink]="['/index/working-menu/woring-with-charts/bar-chart']">
@@ -49,6 +49,11 @@
     <span nz-icon nzTheme="outline" nzType="dot-chart"></span>&nbsp;scatter-chart
   </a>
 </button>
-<div style="display: inline-block;">
+<button nz-button nzType="primary" [routerLink]="['/index/working-menu/woring-with-charts/financial-chart']">
+  <a>
+    <span nz-icon nzTheme="outline" nzType="picture"></span>&nbsp;financial-chart
+  </a>
+</button>
+<div style="width: 80%; max-width: 650px;">
   <router-outlet></router-outlet>
 </div>

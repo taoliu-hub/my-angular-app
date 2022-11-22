@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  title = 'Angular version: 11.2.10';
+  title = 'Angular version: 14.2.2';
 
   constructor() { }
 
