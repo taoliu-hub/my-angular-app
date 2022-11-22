@@ -8,13 +8,13 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Welcome" nzIcon="inbox">
+      <li nz-submenu nzOpen nzTitle="Angular-Guide" nzIcon="dashboard">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome" routerLinkActive="active">Welcome</a>
+            <a routerLink="/angular-guide/welcome" routerLinkActive="active">Welcome</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome/life-cycle" routerLinkActive="active">life-cycle</a>
+            <a routerLink="/angular-guide/life-cycle" routerLinkActive="active">life-cycle</a>
           </li>
         </ul>
       </li>
@@ -45,81 +45,81 @@
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Index" nzIcon="dashboard">
+      <li nz-submenu nzOpen nzTitle="Home" nzIcon="home">
         <ul>
-          <li nz-submenu nzOpen nzTitle="Home" nzIcon="home">
+          <li nz-menu-item nzMatchRouter>
+            <a [routerLink]="['/home']" [routerLinkActive]="['active']">Home</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a [routerLink]="['/home/product']" [routerLinkActive]="['active']">Product</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a [routerLink]="['/home/product/product-details']" [routerLinkActive]="['active']">Product
+              Details</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Woring-Menu" nzIcon="menu">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <span nz-icon nzTheme="outline" nzType="form"></span>
+            <a [routerLink]="['/working-menu/woring-with-forms']">Woring With Forms</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <span nz-icon nzTheme="outline" nzType="file-excel"></span>
+            <a [routerLink]="['/working-menu/woring-with-excels']">Woring With Excels</a>
+          </li>
+          <li nz-submenu nzOpen nzTitle="Woring With Charts" nzIcon="area-chart">
             <ul>
               <li nz-menu-item nzMatchRouter>
-                <a [routerLink]="['/index/home']" [routerLinkActive]="['active']">Home</a>
+                <span nz-icon nzTheme="outline" nzType="bar-chart"></span>
+                <a [routerLink]="['/working-menu/woring-with-charts/bar-chart']">bar-chart</a>
               </li>
               <li nz-menu-item nzMatchRouter>
-                <a [routerLink]="['/index/home/product']" [routerLinkActive]="['active']">Product</a>
+                <span nz-icon nzTheme="outline" nzType="dot-chart"></span>
+                <a [routerLink]="['/working-menu/woring-with-charts/bubble-chart']">bubble-chart</a>
               </li>
               <li nz-menu-item nzMatchRouter>
-                <a [routerLink]="['/index/home/product/product-details']" [routerLinkActive]="['active']">Product
-                  Details</a>
+                <span nz-icon nzTheme="outline" nzType="picture"></span>
+                <a [routerLink]="['/working-menu/woring-with-charts/doughnut-chart']">doughnut-chart</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                <span nz-icon nzTheme="outline" nzType="picture"></span>
+                <a [routerLink]="['/working-menu/woring-with-charts/dynamic-chart']">dynamic-chart</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                <span nz-icon nzTheme="outline" nzType="line-chart"></span>
+                <a [routerLink]="['/working-menu/woring-with-charts/line-chart']">line-chart</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                <span nz-icon nzTheme="outline" nzType="pie-chart"></span>
+                <a [routerLink]="['/working-menu/woring-with-charts/pie-chart']">pie-chart</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                <span nz-icon nzTheme="outline" nzType="pie-chart"></span>
+                <a [routerLink]="['/working-menu/woring-with-charts/polarArea-chart']">polarArea-chart</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                <span nz-icon nzTheme="outline" nzType="radar-chart"></span>
+                <a [routerLink]="['/working-menu/woring-with-charts/radar-chart']">radar-chart</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                <span nz-icon nzTheme="outline" nzType="dot-chart"></span>
+                <a [routerLink]="['/working-menu/woring-with-charts/scatter-chart']">scatter-chart</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                <span nz-icon nzTheme="outline" nzType="picture"></span>
+                <a [routerLink]="['/working-menu/woring-with-charts/financial-chart']">financial-chart</a>
               </li>
             </ul>
           </li>
-          <li nz-submenu nzOpen nzTitle="Woring-Menu" nzIcon="menu">
-            <ul>
-              <li nz-menu-item nzMatchRouter>
-                <span nz-icon nzTheme="outline" nzType="form"></span>
-                <a [routerLink]="['/index/working-menu/woring-with-forms']">Woring With Forms</a>
-              </li>
-              <li nz-menu-item nzMatchRouter>
-                <span nz-icon nzTheme="outline" nzType="file-excel"></span>
-                <a [routerLink]="['/index/working-menu/woring-with-excels']">Woring With Excels</a>
-              </li>
-              <li nz-submenu nzOpen nzTitle="Woring With Charts" nzIcon="area-chart">
-                <ul>
-                  <li nz-menu-item nzMatchRouter>
-                    <span nz-icon nzTheme="outline" nzType="bar-chart"></span>
-                    <a [routerLink]="['/index/working-menu/woring-with-charts/bar-chart']">bar-chart</a>
-                  </li>
-                  <li nz-menu-item nzMatchRouter>
-                    <span nz-icon nzTheme="outline" nzType="dot-chart"></span>
-                    <a [routerLink]="['/index/working-menu/woring-with-charts/bubble-chart']">bubble-chart</a>
-                  </li>
-                  <li nz-menu-item nzMatchRouter>
-                    <span nz-icon nzTheme="outline" nzType="picture"></span>
-                    <a [routerLink]="['/index/working-menu/woring-with-charts/doughnut-chart']">doughnut-chart</a>
-                  </li>
-                  <li nz-menu-item nzMatchRouter>
-                    <span nz-icon nzTheme="outline" nzType="picture"></span>
-                    <a [routerLink]="['/index/working-menu/woring-with-charts/dynamic-chart']">dynamic-chart</a>
-                  </li>
-                  <li nz-menu-item nzMatchRouter>
-                    <span nz-icon nzTheme="outline" nzType="line-chart"></span>
-                    <a [routerLink]="['/index/working-menu/woring-with-charts/line-chart']">line-chart</a>
-                  </li>
-                  <li nz-menu-item nzMatchRouter>
-                    <span nz-icon nzTheme="outline" nzType="pie-chart"></span>
-                    <a [routerLink]="['/index/working-menu/woring-with-charts/pie-chart']">pie-chart</a>
-                  </li>
-                  <li nz-menu-item nzMatchRouter>
-                    <span nz-icon nzTheme="outline" nzType="pie-chart"></span>
-                    <a [routerLink]="['/index/working-menu/woring-with-charts/polarArea-chart']">polarArea-chart</a>
-                  </li>
-                  <li nz-menu-item nzMatchRouter>
-                    <span nz-icon nzTheme="outline" nzType="radar-chart"></span>
-                    <a [routerLink]="['/index/working-menu/woring-with-charts/radar-chart']">radar-chart</a>
-                  </li>
-                  <li nz-menu-item nzMatchRouter>
-                    <span nz-icon nzTheme="outline" nzType="dot-chart"></span>
-                    <a [routerLink]="['/index/working-menu/woring-with-charts/scatter-chart']">scatter-chart</a>
-                  </li>
-                  <li nz-menu-item nzMatchRouter>
-                    <span nz-icon nzTheme="outline" nzType="picture"></span>
-                    <a [routerLink]="['/index/working-menu/woring-with-charts/financial-chart']">financial-chart</a>
-                  </li>
-                </ul>
-              </li>
-              <li nz-menu-item nzMatchRouter>
-                <span nz-icon nzTheme="outline" nzType="link"></span>
-                <a [routerLink]="['/index/working-menu/woring-with-multiselect-dropdown']">Woring With Multiselect-Dropdown</a>
-              </li>
-            </ul>
+          <li nz-menu-item nzMatchRouter>
+            <span nz-icon nzTheme="outline" nzType="area-chart"></span>
+            <a [routerLink]="['/working-menu/woring-with-echarts']">woring-with-echarts</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <span nz-icon nzTheme="outline" nzType="link"></span>
+            <a [routerLink]="['/working-menu/woring-with-multiselect-dropdown']">Woring With Multiselect-Dropdown</a>
           </li>
         </ul>
       </li>
@@ -188,7 +188,7 @@
     </nz-header>
     <nz-content>
       <app-global-content></app-global-content>
-      <div class="inner-content">
+      <div class="inner-content" style="text-align: center; text-align: -webkit-center;">
         <router-outlet></router-outlet>
       </div>
     </nz-content>

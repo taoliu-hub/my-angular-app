@@ -41,9 +41,12 @@
               "src/assets/js/jquery-3.5.1.min.js",
               "src/assets/js/popper.min.js",
               "src/assets/js/bootstrap.min.js",
-              "node_modules/marked/marked.min.js"
+              "node_modules/marked/marked.min.js",
+              "node_modules/echarts/dist/echarts.min.js"
             ],
             "allowedCommonJsDependencies": [
+              "jquery",
+              "lodash",
               "buffer",
               "exceljs",
               "chart.js",

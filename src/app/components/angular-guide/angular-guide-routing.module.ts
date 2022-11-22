@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LifecycleComponent } from './life-cycle/life-cycle.component';
-import { WelcomeComponent } from './welcome.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
-  { path: '', component: WelcomeComponent },
+  { path: '', pathMatch: 'full', redirectTo: '/welcome' },
+  { path: 'welcome', component: WelcomeComponent },
   { path: 'life-cycle', component: LifecycleComponent },
 ];
 
@@ -12,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class WelcomeRoutingModule { }
+export class AngularGuideRoutingModule { }

@@ -85,7 +85,7 @@ export class RegisterAntdComponent implements OnInit {
       isLoggedIn: [false]
     });
   }
-
+  
   getAllUsers(){
     return this.http.get<[]>("http://localhost:3000/users").toPromise();
   }
