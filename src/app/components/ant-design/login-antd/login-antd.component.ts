@@ -11,7 +11,6 @@ import { ProfileService } from 'src/app/profile.service';
   styleUrls: ['./login-antd.component.css']
 })
 export class LoginAntdComponent implements OnInit {
-
   user: any;
   validateForm!: FormGroup;
 
@@ -66,5 +65,4 @@ export class LoginAntdComponent implements OnInit {
         console.log("error: ", error);
       })
   }
-
 }

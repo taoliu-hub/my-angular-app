@@ -11,6 +11,9 @@ import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
   styleUrls: ['./register-antd.component.css']
 })
 export class RegisterAntdComponent implements OnInit {
+
+
+
   validateForm!: FormGroup;
   captchaTooltipIcon: NzFormTooltipIcon = {
     type: 'info-circle',
@@ -23,7 +26,6 @@ export class RegisterAntdComponent implements OnInit {
       console.log('submit', this.validateForm.value);
       return;
     } else {
-      
       for (const i in this.validateForm.controls) {
         this.validateForm.controls[i].markAsDirty();
         this.validateForm.controls[i].updateValueAndValidity();
@@ -63,7 +65,7 @@ export class RegisterAntdComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router
-  ) {    
+  ) {
     this.getAllUsers().then(data => this.existsUser = data);
   }
 
@@ -85,17 +87,17 @@ export class RegisterAntdComponent implements OnInit {
   getAllUsers(){
     return this.http.get<[]>("http://localhost:3000/users").toPromise();
   }
-  
+
   isDuplicateEmail = (control: FormControl): { [s: string]: boolean } => {
     let nameList: string[] = [];
     this.existsUser?.forEach((element:any) => {
       nameList.push(element?.username);
-    });      
+    });
     if (nameList.includes(control.value)) {
       return { isDuplicateEmail: true, error: true };
     }
     return {};
-  };  
-  
+  };
+
 }
 

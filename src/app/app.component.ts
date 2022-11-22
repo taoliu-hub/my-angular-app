@@ -1,5 +1,6 @@
-import { AfterContentChecked, Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import * as _ from 'lodash';
 import { ProfileService } from './profile.service';
 
 @Component({
@@ -7,10 +8,11 @@ import { ProfileService } from './profile.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, AfterContentChecked {
+export class AppComponent implements OnInit, DoCheck {
 
-  isCollapsed = true;
+  isCollapsed = false;
   authData: any;
+  localStorageAuthData: any;
 
   constructor(
     private profileService: ProfileService,
@@ -24,17 +26,24 @@ export class AppComponent implements OnInit, AfterContentChecked {
 
   ngOnInit(): void {
   }
- 
+
   runningFlag = true;
-  ngAfterContentChecked(){   
-    if(!this.authData && !!localStorage['username'] && this.runningFlag){
+  ngDoCheck(){
+    this.getAuthData();
+  }
+
+  getAuthData() {
+    this.localStorageAuthData = this.profileService.getDecryptionObj('token');
+    if (this.runningFlag && ((!this.authData && this.localStorageAuthData) || this.localStorageAuthData?.nickname !== this.authData?.nickname)) {
       this.runningFlag = false;
       setTimeout(() => {
-        this.authData = this.profileService.getDecryptionObj('token');
+        this.authData = _.cloneDeep(this.localStorageAuthData);
         console.log("setTimeout  ==>", "nickname", this.authData?.nickname);
         this.runningFlag = true;
       }, 500);
-    } 
+    } else {
+      this.authData = this.authData && this.localStorageAuthData ? this.authData : null;
+    }
   }
 
   logout() {

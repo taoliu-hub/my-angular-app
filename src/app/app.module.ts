@@ -42,7 +42,7 @@ registerLocaleData(zh);
     IconAntdComponent,
     IndexComponent
   ],
-  imports: [    
+  imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

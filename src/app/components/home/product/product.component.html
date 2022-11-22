@@ -1,7 +1,7 @@
 <p>product works!</p>
 
 <h2>Product List</h2>
-{{rNum?.length}} - {{count}}
+{{rNum.length}} - {{count}}
 <div *ngFor="let x of rNum | paginate: config">
   {{x | classify}}
 </div>

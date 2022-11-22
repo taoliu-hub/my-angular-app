@@ -11,10 +11,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { LoginComponent } from './components/signin-or-signout/login/login.component';
 import { RegisterComponent } from './components/signin-or-signout/register/register.component';
 
-
 const routes: Routes = [
-  // { path: '', pathMatch: 'full', redirectTo: 'login' },
-  
   { path: '', pathMatch: 'full', redirectTo: '/welcome' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
