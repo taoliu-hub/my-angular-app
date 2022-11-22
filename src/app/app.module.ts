@@ -11,7 +11,6 @@ import { IconAntdComponent } from "./components/ant-design/icon-antd/icon-antd.c
 import { LoginAntdComponent } from "./components/ant-design/login-antd/login-antd.component";
 import { RegisterAntdComponent } from "./components/ant-design/register-antd/register-antd.component";
 import { GlobalContentComponent } from "./components/global-content/global-content.component";
-import { IndexComponent } from "./components/index/index.component";
 import { MessageComponent } from "./components/message/message.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { OkayCancelComponent } from "./components/pop-up-window/okay-cancel/okay-cancel.component";
@@ -22,6 +21,7 @@ import { ProfileService } from "./profile.service";
 
 import en from '@angular/common/locales/en';
 import zh from '@angular/common/locales/zh';
+import { AngularGuideModule } from './components/angular-guide/angular-guide.module';
 
 registerLocaleData(en);
 registerLocaleData(zh);
@@ -39,14 +39,14 @@ registerLocaleData(zh);
     OkayCancelComponent,
     LoginAntdComponent,
     RegisterAntdComponent,
-    IconAntdComponent,
-    IndexComponent
+    IconAntdComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    CommonShareModule
+    CommonShareModule,
+    AngularGuideModule
   ],
   exports: [CommonShareModule],
   providers: [

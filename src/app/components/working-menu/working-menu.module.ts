@@ -7,6 +7,7 @@ import { WorkingWithChartModule } from './working-with-chart/working-with-chart.
 import { WorkingWithExcelComponent } from './working-with-excel/working-with-excel.component';
 import { WorkingWithFormsComponent } from './working-with-forms/working-with-forms.component';
 import { WorkingWithMultiselectDropdownComponent } from './working-with-multiselect-dropdown/working-with-multiselect-dropdown.component';
+import { WorkingWithEchartsModule } from './working-with-echarts/working-with-echarts.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { WorkingWithMultiselectDropdownComponent } from './working-with-multisel
     WorkingMenuRoutingModule,
     CommonShareModule,
     NgMultiSelectDropDownModule,
-    WorkingWithChartModule
+    WorkingWithChartModule,
+    WorkingWithEchartsModule
   ],
   exports: []
 })

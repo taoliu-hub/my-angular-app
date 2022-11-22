@@ -10,7 +10,7 @@ import { ProfileService } from './profile.service';
 })
 export class AppComponent implements OnInit, DoCheck {
 
-  isCollapsed = false;
+  isCollapsed = true;
   authData: any;
   localStorageAuthData: any;
 

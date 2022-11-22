@@ -71,8 +71,8 @@ export class LoginComponent implements OnInit {
             this.profileService.setEncryptionObj("token", res);
             this.profileService.authInfo = res;
             this.profileService.setAuthData$();
-            // this.router.navigateByUrl(`/welcome`);
-            this.router.navigate(['/index']);
+            // this.router.navigateByUrl(`/angular-guide/welcome`);
+            this.router.navigate(['/angular-guide/welcome']);
         });
       } else {
         alert("User does not exist. Please try again.");
