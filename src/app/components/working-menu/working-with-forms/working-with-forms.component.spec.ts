@@ -11,9 +11,7 @@ describe('WorkingWithFormsComponent', () => {
       declarations: [ WorkingWithFormsComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(WorkingWithFormsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

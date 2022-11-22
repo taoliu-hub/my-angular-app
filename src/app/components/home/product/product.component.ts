@@ -60,28 +60,4 @@ export class ProductComponent implements OnInit {
     console.log(event);
   }
 
-  // ngAfterViewInit(){
-  // }
-
-  // ngAfterViewChecked(){
-  //   this.changePaginationLableName("pagination-previous", ' Previous ','上一页');
-  //   this.changePaginationLableName("pagination-next", ' Next ','下一页');
-  // }
-
-  // changePaginationLableName(paginationClassName:string, oldLabVal:string, newLabVal:string){
-  //   let elements = document.getElementsByClassName(paginationClassName);
-  //   for (const key in elements) {
-  //     if (Object.prototype.hasOwnProperty.call(elements, key)) {
-  //       const element = elements[key];
-  //       element?.childNodes?.forEach(element_1 => {
-  //         element_1?.childNodes?.forEach(element_2 => {
-  //           element_2.nodeValue = element_2.nodeValue == oldLabVal ? newLabVal : element_2.nodeValue;
-  //         });
-  //       });
-
-  //     }
-  //   }
-  // }
-
-
 }

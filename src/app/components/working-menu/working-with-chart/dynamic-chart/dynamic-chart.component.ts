@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { BaseChartDirective, Label } from 'ng2-charts';
+import { ChartConfiguration, ChartData, ChartEvent, ChartOptions, ChartType } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-dynamic-chart',
@@ -10,11 +10,7 @@ import { BaseChartDirective, Label } from 'ng2-charts';
 export class DynamicChartComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
-  public chartOptions: ChartOptions = {
-    responsive: true,
-    title: { // 'left' | 'right' | 'top' | 'bottom' | 'chartArea'
-      text: 'Dynamic Chart'
-    },
+  public barChartOptions: ChartConfiguration['options'] = {
     elements: {
       line: {
         tension: 0.4
@@ -22,27 +18,44 @@ export class DynamicChartComponent {
     },
     // We use these empty structures as placeholders for dynamic theming.
     scales: {
-      xAxes: [{}],
-      yAxes: [
-        {
-          ticks: {
-            min: 10
-          }
-        }]
+      x: {},
+      y: {
+        min: 10
+      }
     },
     plugins: {
       legend: { display: true },
+      title: {
+        align: 'center',
+        display: true,
+        position: 'bottom',
+        fullSize: true,
+        color: 'green',
+        text: 'Dynamic Chart'
+      }
     }
   };
-  public chartType: ChartType = 'bar';
+  public barChartLabels: string[] = [ '2006', '2007', '2008', '2009', '2010', '2011', '2012' ];
+  public barChartType: ChartType = 'bar';
 
-  public chartLabels: Label[] = [ '2006', '2007', '2008', '2009', '2010', '2011', '2012' ];
-  public chartData: ChartDataSets[] = [
+  public barChartData: ChartData<'bar'> = {
+    labels: this.barChartLabels,
+    datasets: [
       { data: [ 65, 59, 80, 81, 56, 55, 40 ], label: 'Series A' },
       { data: [ 28, 48, 40, 19, 86, 27, 90 ], label: 'Series B' }
-  ];
+    ]
+  };
+
+  // events
+  public chartClicked({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
+    console.log(event, active);
+  }
+
+  public chartHovered({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
+    console.log(event, active);
+  }
 
   public randomize(): void {
-    this.chartType = this.chartType === 'bar' ? 'line' : 'bar';
+    this.barChartType = this.barChartType === 'bar' ? 'line' : 'bar';
   }
 }

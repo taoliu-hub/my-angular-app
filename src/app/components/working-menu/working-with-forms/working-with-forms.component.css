@@ -10,7 +10,7 @@ form>label {
   color: red;
 }
 
-label {
+.form-label {
   width: 90px;
   text-align: left;
 }
