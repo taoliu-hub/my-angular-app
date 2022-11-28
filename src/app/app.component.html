@@ -10,7 +10,7 @@
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
       <li nz-submenu nzOpen nzTitle="Angular-Guide" nzIcon="dashboard">
         <ul>
-          <li nz-menu-item nzMatchRouter>
+          <li nz-menu-item nzMatchRouter nzSelected>
             <a routerLink="/angular-guide/welcome" routerLinkActive="active">Welcome</a>
           </li>
           <li nz-menu-item nzMatchRouter>
@@ -18,7 +18,7 @@
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Sign-in Or Sign-out" nzIcon="user">
+      <li nz-submenu nzTitle="Sign-in Or Sign-out" nzIcon="user">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <span nz-icon nzTheme="outline" nzType="login"></span>
@@ -30,7 +30,7 @@
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Ant Design" nzIcon="ant-design">
+      <li nz-submenu nzTitle="Ant Design" nzIcon="ant-design">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <span nz-icon nzTheme="outline" nzType="login"></span>
@@ -45,7 +45,7 @@
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Home" nzIcon="home">
+      <li nz-submenu nzTitle="Home" nzIcon="home">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <a [routerLink]="['/home']" [routerLinkActive]="['active']">Home</a>
@@ -59,7 +59,7 @@
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Woring-Menu" nzIcon="menu">
+      <li nz-submenu nzTitle="Woring-Menu" nzIcon="menu">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <span nz-icon nzTheme="outline" nzType="form"></span>
@@ -69,7 +69,7 @@
             <span nz-icon nzTheme="outline" nzType="file-excel"></span>
             <a [routerLink]="['/working-menu/woring-with-excels']">Woring With Excels</a>
           </li>
-          <li nz-submenu nzOpen nzTitle="Woring With Charts" nzIcon="area-chart">
+          <li nz-submenu nzTitle="Woring With Charts" nzIcon="area-chart">
             <ul>
               <li nz-menu-item nzMatchRouter>
                 <span nz-icon nzTheme="outline" nzType="bar-chart"></span>
